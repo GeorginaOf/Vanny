@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Home.aspx" title="Inicio" description="Inicio">
+    <siteMapNode url="~/Agenda.aspx" title="Agenda"  description="Agenda" />
+    <siteMapNode url="~/Articles.aspx" title="Artículos"  description="Artículos" />
+    <siteMapNode url="~/Caixa.aspx" title="Caja"  description="Caja" />
+    <siteMapNode url="~/Clients.aspx" title="Clientes"  description="Clientes" />
+    <siteMapNode url="~/Compres.aspx" title="Compras"  description="Compras" />
+    <siteMapNode url="~/Compte.aspx" title="Cuenta"  description="Cuenta" />
+    <siteMapNode url="~/Deutes.aspx" title="Deudas"  description="Deudas" />
+    <siteMapNode url="~/Proveidors.aspx" title="Proveedores"  description="Proveedores" />
+    <siteMapNode url="~/Vendes.aspx" title="Ventas"  description="Ventas" />
+  </siteMapNode>
+</siteMap>

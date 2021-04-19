@@ -1,0 +1,145 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Vanny.master.cs" Inherits="Vanny.Vanny" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Vanny - Gestión peluquerías y centros de estética</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="Content/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+    <form runat="server">
+
+        <!-- Top Navbar -->
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-gna mb-3">
+            <div class="flex-row d-flex">
+                <button type="button" class="navbar-toggler mr-2 " data-toggle="offcanvas" title="Toggle responsive left sidebar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="Home.aspx" title="Inicio">Vanny</a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse" id="collapsingNavbar">
+                <ul class="navbar-nav">
+                    <%--                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio <span class="sr-only">Inicio</span></a>
+                </li>--%>
+                    <%--                <li class="nav-item">
+                    <a class="nav-link" href="//www.codeply.com">Ayuda</a>
+                </li>--%>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <%--                <li class="nav-item">
+                    <a class="nav-link" href="#myAlert" data-toggle="collapse">Contacto</a>
+                </li>--%>
+                    <%--                <li class="nav-item">
+                    <a class="nav-link" href="" data-target="#myModal" data-toggle="modal">About</a>
+                </li>--%>
+                    <li class="nav-item dropdown" style="padding-right: 80px;">
+                        <a class="nav-link dropdown-toggle" href="#" id="A1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hola
+                            <asp:LoginName ID="LoginName1" runat="server" Font-Bold="true" />
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="Compte.aspx">Mi cuenta</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <%--Cerrar Sessión--%>
+                                <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="dropdown-item-text" />
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <div class="container-fluid" id="main">
+            <div class="row row-offcanvas row-offcanvas-left">
+                <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-gna-sidebar border border-gna pl-0" id="sidebar" role="navigation">
+                    <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
+                        <li class="nav-item"><a class="nav-link-gna" href="Agenda.aspx">Agenda</a></li>
+                        <%--                    <li class="nav-item">
+                        <a class="nav-link-gna" href="Clients.aspx" data-toggle="collapse" data-target="#submenu1">Clientes▾</a>
+                        <ul class="list-unstyled flex-column pl-3 collapse" id="submenu1" aria-expanded="false">
+                            <li class="nav-item"><a class="nav-link-gna" href="Deute.aspx">Deudas</a></li>
+                        </ul>
+                    </li>--%>
+                        <li class="nav-item"><a class="nav-link-gna" href="Clients.aspx">Clientes</a></li>
+                        <li class="nav-item"><a class="nav-link-gna" href="Deutes.aspx">Deudas</a></li>
+                        <li class="nav-item"><a class="nav-link-gna" href="Articles.aspx">Artículos</a></li>
+                        <li class="nav-item"><a class="nav-link-gna" href="Proveidors.aspx">Proveedores</a></li>
+                        <li class="nav-item"><a class="nav-link-gna" href="Vendes.aspx">Ventas</a></li>
+                        <li class="nav-item"><a class="nav-link-gna" href="Compres.aspx">Compras</a></li>
+                        <li class="nav-item"><a class="nav-link-gna" href="Caixa.aspx">Caja</a></li>
+                    </ul>
+                </div>
+
+                <!-- CONTENT -->
+                <div class="col main pt-5 mt-3">
+                    
+                    <!-- BREADCRUMBS -->
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" SiteMapProvider="Web" />
+                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticDisplayLevels="3" Visible="False"></asp:Menu>
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" PathSeparator=" > " CssClass="sitemap"></asp:SiteMapPath>
+                    <hr />
+                    
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- footer -->
+        <div class="footer">
+            <%--This footer will always be positioned at the bottom of the page, but <strong>not fixed</strong>.--%>
+            <span class="text-muted">&copy;2019 Georgina Ortiz Fernandez&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;<a href="Default.aspx" class="nav-link-wh-gna">Atención al cliente</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;<a href="Default.aspx" class="nav-link-wh-gna">Copyright</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;<a href="Default.aspx" class="nav-link-wh-gna">Politica de privacidad</a>&nbsp;&nbsp;&nbsp;&middot;&nbsp;&nbsp;&nbsp;<a href="Default.aspx" class="nav-link-wh-gna">Mapa web</a> </span>
+        </div>
+
+
+        <!-- Modal -->
+        <%--    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Modal</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a dashboard layout for Bootstrap 4. This is an example of the Modal component which you can use to show content. Any content can be placed inside the modal and it can use the Bootstrap grid classes.</p>
+                    <p>
+                        <a href="https://www.codeply.com/go/KrUO8QpyXP" target="_ext">Grab the code at Codeply</a>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary-outline" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+
+
+
+        <!-- Scripts -->
+        <script src="Scripts/jquery-3.3.1.min.js"></script>
+        <script src="Scripts/bootstrap.min.js"></script>
+        <script src="Scripts/bootstrap.bundle.js"></script>
+        <script src="Scripts/bootstrap.bundle.min.js"></script>
+
+    </form>
+</body>
+</html>
